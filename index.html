@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <div class="buttons">
+        <button onclick="add()">+</button>
+        <button onclick="sub()">-</button>
+        <button onclick="mul()">*</button>
+        <button onclick="div()">/</button>
+    </div>
+
+    <div class="buttons">
+        <button onclick="sqrt()">√</button>
+        <button onclick="cuberoot()">∛</button>
+        <button onclick="power()">xʸ</button>
+    </div>
+
+    <h2 id="result">Result: </h2>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
