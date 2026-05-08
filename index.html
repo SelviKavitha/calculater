@@ -13,17 +13,26 @@
     <input type="number" id="num1" placeholder="Enter first number">
     <input type="number" id="num2" placeholder="Enter second number">
 
+    <!-- Basic Operation Buttons -->
     <div class="buttons">
         <button onclick="add()">+</button>
         <button onclick="sub()">-</button>
         <button onclick="mul()">*</button>
         <button onclick="div()">/</button>
+        <button onclick="calculate()">=</button>
     </div>
 
+    <!-- Advanced Operation Buttons -->
     <div class="buttons">
         <button onclick="sqrt()">√</button>
         <button onclick="cuberoot()">∛</button>
         <button onclick="power()">xʸ</button>
+    </div>
+
+    <!-- Clear Buttons -->
+    <div class="buttons">
+        <button onclick="clearEntry()">CE</button>
+        <button onclick="allClear()">AC</button>
     </div>
 
     <h2 id="result">Result: </h2>

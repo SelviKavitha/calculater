@@ -1,51 +1,101 @@
+let currentOperation = "";
+
+// Get input values
 function getValues() {
     let a = Number(document.getElementById("num1").value);
     let b = Number(document.getElementById("num2").value);
     return [a, b];
 }
 
-// Addition
+// Select Addition
 function add() {
-    let [a, b] = getValues();
-    document.getElementById("result").innerText = "Result: " + (a + b);
+    currentOperation = "add";
 }
 
-// Subtraction
+// Select Subtraction
 function sub() {
-    let [a, b] = getValues();
-    document.getElementById("result").innerText = "Result: " + (a - b);
+    currentOperation = "sub";
 }
 
-// Multiplication
+// Select Multiplication
 function mul() {
-    let [a, b] = getValues();
-    document.getElementById("result").innerText = "Result: " + (a * b);
+    currentOperation = "mul";
 }
 
-// Division
+// Select Division
 function div() {
-    let [a, b] = getValues();
-    if (b === 0) {
-        document.getElementById("result").innerText = "Cannot divide by zero";
-    } else {
-        document.getElementById("result").innerText = "Result: " + (a / b);
-    }
+    currentOperation = "div";
 }
 
-// Square Root
+// Select Power
+function power() {
+    currentOperation = "power";
+}
+
+// Square Root (Immediate calculation)
 function sqrt() {
     let a = Number(document.getElementById("num1").value);
-    document.getElementById("result").innerText = "Result: " + Math.sqrt(a);
+    document.getElementById("result").innerText =
+        "Result: " + Math.sqrt(a);
 }
 
-// Cube Root
+// Cube Root (Immediate calculation)
 function cuberoot() {
     let a = Number(document.getElementById("num1").value);
-    document.getElementById("result").innerText = "Result: " + Math.cbrt(a);
+    document.getElementById("result").innerText =
+        "Result: " + Math.cbrt(a);
 }
 
-// Power
-function power() {
+
+function calculate() {
     let [a, b] = getValues();
-    document.getElementById("result").innerText = "Result: " + Math.pow(a, b);
+    let result;
+
+    switch (currentOperation) {
+        case "add":
+            result = a + b;
+            break;
+
+        case "sub":
+            result = a - b;
+            break;
+
+        case "mul":
+            result = a * b;
+            break;
+
+        case "div":
+            if (b === 0) {
+                document.getElementById("result").innerText =
+                    "Cannot divide by zero";
+                return;
+            }
+            result = a / b;
+            break;
+
+        case "power":
+            result = Math.pow(a, b);
+            break;
+
+        default:
+            document.getElementById("result").innerText =
+                "Select an operation first";
+            return;
+    }
+
+    document.getElementById("result").innerText =
+        "Result: " + result;
+}
+
+// Clear Entry (CE) - Clears only second input
+function clearEntry() {
+    document.getElementById("num2").value = "";
+}
+
+// All Clear (AC) - Resets everything
+function allClear() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").innerText = "Result: ";
+    currentOperation = "";
 }
